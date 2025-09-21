@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://images.unsplash.com/photo-1588776814546-10aa8e891cbf?fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      width: 350px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: #3498db;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .back-btn {
+      margin-top: 10px;
+      background-color: #7f8c8d;
+    }
+
+    .back-btn:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Doctor Login</h2>
+    <form action="doctor_login.html" method="get">
+      <!-- Doctor ID: exactly 10 digits -->
+      <input type="text" name="doctor_id" placeholder="Enter Doctor ID" 
+             pattern="[0-9]{10}" maxlength="10" minlength="10" required 
+             title="Doctor ID must be exactly 10 digits">
+
+      <!-- Password: exactly 6 digits -->
+      <input type="password" name="password" placeholder="Enter 6-digit Password" 
+             pattern="[0-9]{6}" maxlength="6" minlength="6" required 
+             title="Password must be exactly 6 digits">
+
+      <button type="submit">Login</button>
+      <button type="button" class="back-btn" onclick="location.href='index.html'">⬅ Back</button>
+    </form>
+  </div>
+
+</body>
+</html>
+

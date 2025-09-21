@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://images.unsplash.com/photo-1588776814546-10aa8e891cbf?fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Sidebar styling */
+    .sidebar {
+      width: 200px;
+      background-color: #333;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      height: 100%;
+      left: -200px;
+      /* hide initially */
+      transition: left 0.5s;
+      z-index: 5;
+    }
+
+    .sidebar.show {
+      left: 0;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 20px;
+    }
+
+    .doctor-btn {
+      width: 150px;
+      padding: 15px;
+      margin: 10px 0;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+
+    .doctor-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .general {
+      background-color: #4CAF50;
+    }
+
+    .emergency {
+      background-color: #f44336;
+    }
+
+    /* Main tags styling */
+    .main-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .tags {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .tag {
+      padding: 20px 50px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      color: white;
+      border-radius: 15px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transform: translateX(-500px);
+      opacity: 0;
+      transition: transform 0.8s ease, opacity 0.8s ease;
+    }
+
+    .tag.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .tag:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .eye {
+      background-color: #1abc9c;
+    }
+
+    .tongue {
+      background-color: #3498db;
+    }
+
+    .fat {
+      background-color: #9b59b6;
+    }
+
+    .lungs {
+      background-color: #e67e22;
+    }
+
+    .yoga {
+      background-color: #e74c3c;
+    }
+
+    .meditation {
+      background-color: #f1c40f;
+    }
+
+    /* Sidebar toggle button */
+    .toggle-btn {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      background-color: #333;
+      color: white;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      z-index: 10;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="sidebar" id="sidebar">
+    <h2>Call Doctor</h2>
+    <button class="doctor-btn general">General Doctor - ₹100</button>
+    <button class="doctor-btn emergency">Emergency Doctor - ₹500</button>
+  </div>
+
+  <div class="toggle-btn" onclick="toggleSidebar()">☰ Menu</div>
+
+  <div class="main-container">
+    <div class="tags">
+      <div class="tag eye" onclick="navigate('eye_test.html')">Eye Test</div>
+      <div class="tag tongue" onclick="navigate('tongue_test.html')">Tongue Test</div>
+      <div class="tag fat" onclick="navigate('fat_test.html')">Fat Test</div>
+      <div class="tag lungs" onclick="navigate('lungs_test.html')">Lungs Test</div>
+      <div class="tag yoga" onclick="navigate('yoga.html')">Yoga</div>
+      <div class="tag meditation" onclick="navigate('meditation.html')">Meditation</div>
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('show');
+    }
+
+    function navigate(page) {
+      window.location.href = page;
+    }
+
+    // Slide-in animation for tags
+    window.onload = () => {
+      const tags = document.querySelectorAll('.tag');
+      tags.forEach((tag, index) => {
+        setTimeout(() => {
+          tag.classList.add('show');
+        }, index * 200); // delay for each tag
+      });
+    };
+  </script>
+</body>
+
+</html>
